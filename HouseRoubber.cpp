@@ -90,28 +90,29 @@ void maxisum_trabulation(vc v)
 int maxisum_memoriOptimization(vc v)
 {
 int n = v.size();
-    int p1,p2;
+  int p1,p2;
         p1=v[0];
+        p2=0;
         
-        if(n==1)return p1;
-        p2=v[1];
-        p2=max(p1,p2);
-        if(n==2)return p2;
         
-    for (int i = 2; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
-        int tem=p2;
-        p2=max((v[i]+p1),p2);
-        p1=tem;
+        int take=v[i];
+        if(i>1)take+=p2;
+
+        int nottake=0+p1;
+        p2=p1;
+        p1=max(take,nottake);
     }
-    cout << "The maximum sum will be : " <<p2 << endl;
-    return p2;
+    cout << "The maximum sum will be : " <<p1 << endl;
+    return p1;
 }
+
 int main()
 {
-    vc v = {2, 7, 9, 3, 1};
+    vc v = {1,3,1,3,100};
     // maxisum(v);
-    maxisum2(v);
+   // maxisum2(v);
 maxisum_trabulation(v);
 maxisum_memoriOptimization(v);
     return 0;
