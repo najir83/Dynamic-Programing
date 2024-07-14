@@ -9,7 +9,6 @@ typedef vector<vl> vll;
 
 
 
-
 int main(){
 vi v={1,2,2,3};
 int k=3;
